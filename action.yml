@@ -1,13 +1,14 @@
-name: 'Github Action <TODO_NAME> Template'
-description: 'TODO: description'
+name: "Auto-generate CHANGELOG"
+description: "Generate CHANGELOG according to conventional commits automatically"
 author: ivankatliarchuk <https://github.com/ivankatliarchuk>
 
 runs:
   using: 'node12'
   main: 'dist/index.js'
+
 branding:
-  color: "purple"
-  icon: "user"
+  color: "orange"
+  icon: "bookmark"
 
 inputs:
   name:
