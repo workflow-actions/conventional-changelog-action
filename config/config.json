@@ -1,0 +1,32 @@
+{
+  "writerOpts": {},
+  "options": {
+    "preset": {
+      "name": "conventionalcommits",
+      "header": "# Changelog",
+      "issuePrefixes": ["#"],
+      "issueUrlFormat": "{{host}}/{{owner}}/{{repository}}/issues/{{id}}",
+      "compareUrlFormat": "{{host}}/{{owner}}/{{repository}}/compare/{{previousTag}}...{{currentTag}}",
+      "userUrlFormat": "{{host}}/{{user}}",
+      "types": [
+        { "type": "feat", "hidden": false, "section": "Features" },
+        { "type": "feature", "hidden": false, "section": "Features" },
+        { "type": "fix", "hidden": false, "section": "Bug Fixes" },
+        { "type": "bug", "hidden": false, "section": "Bug Fixes" },
+        { "type": "perf", "hidden": false, "section": "Performance Improvements" },
+        { "type": "revert", "hidden": false, "section": "Reverts" },
+        { "type": "docs","hidden": false, "section": "Documentation" },
+        { "type": "style", "hidden": false, "section": "Styles" },
+        { "type": "chore", "hidden": false, "section": "Chores" },
+        { "type": "node", "hidden": false, "section": "Chores" },
+        { "type": "git", "hidden": false, "section": "Chores" },
+        { "type": "refactor", "hidden": false, "section": "Refactor" },
+        { "type": "test", "hidden": false, "section": "Tests" },
+        { "type": "build", "hidden": false, "section": "Automation" },
+        { "type": "ci", "hidden": false, "section": "Continuous Integration" },
+        { "type": "perf", "hidden": false },
+        { "type": "", "hidden": false, "section": "Refactor" }
+      ]
+    }
+  }
+}
