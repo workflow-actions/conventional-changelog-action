@@ -5,7 +5,7 @@ SHELL := /bin/bash
 MAKEFLAGS += --warn-undefined-variables
 MAKEFLAGS += --no-builtin-rules
 
-INPUT_NAME ?= ivanka
+INPUT_NAME ?= super-input
 
 help:
 	@printf "Usage: make [target] [VARIABLE=value]\nTargets:\n"
@@ -26,12 +26,14 @@ install: ## Install module dependencies
 	@npm install
 
 build: ## Run build
-	@npm run build
 	@npm run pack
 
-# run: build
-run: ## Run action locally
+run-dist: build
+run-dist: ## Run action locally
 	@npm run exec
+
+run: ## Run action from typescript
+	@npm run local
 
 test: ## Run tests
 	@npm run test:jest
