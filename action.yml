@@ -17,5 +17,5 @@ inputs:
     required: true
 
 outputs:
-  gh_output:
-    description: 'The generated github action output'
+  changelog:
+    description: 'Generated changelog'

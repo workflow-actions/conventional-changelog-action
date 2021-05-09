@@ -11,8 +11,7 @@ const env = from(process.env, {
 })
 
 export class Config {
-  constructor() {
-  }
+  constructor() {}
 
   workspace: string = env.get('GITHUB_WORKSPACE').required().example('src').asString()
   repo: string = env.get('GITHUB_REPOSITORY').required().asRepoWithoutOwner()
