@@ -18,8 +18,13 @@
 
 ## ⭐ Features
 
-- Write source in TypeScript
-- Auto-publish compiled code to `dist/`
+- [X] Write source in TypeScript
+- [ ] Generate conventional Changelog
+- [ ] Add link with diff to changelog
+- [ ] Get a recommended version bump based on conventional commits
+- [ ] Auto-publish compiled code to `dist/`
+- [ ] Add to code coverage
+- [ ] Add emojies support
 
 <!-- resources -->
 [build-test-run.badge]: https://github.com/accelerator-blueprints/blueprint-github-action-typescipt/actions/workflows/01-build.yml/badge.svg
