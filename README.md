@@ -25,6 +25,7 @@
 - [ ] Auto-publish compiled code to `dist/`
 - [ ] Add to code coverage
 - [ ] Add emojies support
+- [ ] Unreleased tag
 
 <!-- resources -->
 [build-test-run.badge]: https://github.com/accelerator-blueprints/blueprint-github-action-typescipt/actions/workflows/01-build.yml/badge.svg
