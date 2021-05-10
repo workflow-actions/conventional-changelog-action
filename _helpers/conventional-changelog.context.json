@@ -1,6 +1,6 @@
 {
-  "owner": "workflow-actions",
-  "repository": "conventional-changelog-action",
+  "linkCompare": false,
   "linkReferences": false,
-  "linkCompare": false
+  "owner": "workflow-actions",
+  "repository": "conventional-changelog-action"
 }

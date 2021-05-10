@@ -12,8 +12,8 @@
   },
   "description": "TypeScript template/accelerator action",
   "devDependencies": {
-    "@types/lodash": "4.14.168",
     "@types/jest": "26.0.23",
+    "@types/lodash": "4.14.168",
     "@types/node": "15.0.1",
     "@types/sinon": "10.0.0",
     "@typescript-eslint/eslint-plugin": "4.22.1",
@@ -36,6 +36,9 @@
     "ts-node": "9.1.1",
     "typescript": "^4.2.4"
   },
+  "engines": {
+    "node": ">=12"
+  },
   "homepage": "https://github.com/workflow-actions/conventional-changelog-action#readme",
   "keywords": [
     "github",
@@ -54,11 +57,11 @@
   "scripts": {
     "build": "tsc",
     "exec": "node dist/index.js",
-    "local": "ts-node src/index.ts",
     "format": "prettier --write **/*.ts",
     "format-check": "prettier --check '**/*.ts'",
-    "lint": "eslint src/**/*.ts",
     "help": "tsc --help",
+    "lint": "eslint src/**/*.ts",
+    "local": "ts-node src/index.ts",
     "pack": "tsc --noEmit && ncc build --license license --source-map",
     "test": "npm run test:unit",
     "test:coverage": "tsc --noEmit && jest --coverage",
@@ -66,8 +69,5 @@
     "test:unit": "jest unit"
   },
   "snyk": true,
-  "version": "0.0.0",
-  "engines": {
-    "node": ">=12"
-  }
+  "version": "0.0.0"
 }

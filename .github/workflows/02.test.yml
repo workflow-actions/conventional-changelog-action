@@ -1,4 +1,4 @@
-name: run-action
+name: 02.run-action
 
 on:
   workflow_dispatch:

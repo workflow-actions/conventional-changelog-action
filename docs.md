@@ -24,4 +24,3 @@ conventional-changelog -p conventionalcommits -n ./config1.json -c ./context.jso
 ## Presets
 
 Possible values: 'angular', 'atom', 'codemirror', 'ember', 'eslint', 'express', 'jquery', 'jscs', 'jshint'
-

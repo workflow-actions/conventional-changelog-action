@@ -1,4 +1,4 @@
-name: CodeQL analysis
+name: 04.codeql-analysis
 
 on:
   push:

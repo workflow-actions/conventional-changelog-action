@@ -31,9 +31,10 @@ repos:
     args: ['--fix=lf']
     description: Forces to replace line ending by the UNIX 'lf' character.
     # files: ^tests/
-  - id: pretty-format-json
-    args: ['--autofix', '--indent=2']
-    exclude: ^tsconfig.json
+  - id: no-commit-to-branch
+  # - id: pretty-format-json
+  #   args: ['--autofix', '--indent=2']
+  #   exclude: ^tsconfig.json
   - id: requirements-txt-fixer
   - id: sort-simple-yaml
   - id: trailing-whitespace

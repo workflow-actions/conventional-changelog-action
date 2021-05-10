@@ -20,4 +20,3 @@ export const generateChangelog = (config) => {
       })
   })
 }
-

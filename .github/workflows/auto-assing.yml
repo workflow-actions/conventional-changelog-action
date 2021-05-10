@@ -1,6 +1,6 @@
 # @todo: sync with other repositories
 ---
-name: assign reviewers based on assignees
+name: assign-reviewers
 
 on:
   pull_request:

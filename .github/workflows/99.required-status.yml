@@ -1,5 +1,5 @@
 ---
-name: required-status-check
+name: 99.required-status-check
 
 on:
   workflow_dispatch:
