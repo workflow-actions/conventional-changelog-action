@@ -12,7 +12,7 @@ describe('index: action debug messages', () => {
   it('should output a debug message', async () => {
     const debugMock = jest.spyOn(core, 'debug')
     await run()
-    expect(debugMock).toBeCalledTimes(3)
+    expect(debugMock).toBeCalledTimes(1)
   })
 
   it('should not output a messages', async () => {

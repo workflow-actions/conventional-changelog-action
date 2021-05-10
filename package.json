@@ -59,14 +59,17 @@
     "exec": "node dist/index.js",
     "format": "prettier --write **/*.ts",
     "format-check": "prettier --check '**/*.ts'",
-    "help": "tsc --help",
+    "help": "tsc --help; ncc --help",
     "lint": "eslint src/**/*.ts",
     "local": "ts-node src/index.ts",
-    "pack": "tsc --noEmit && ncc build --license license --source-map",
+    "packsrc": "tsc --noEmit && ncc build --license license --source-map -m",
+    "pack": "ncc build --license license -m",
     "test": "npm run test:unit",
     "test:coverage": "tsc --noEmit && jest --coverage",
     "test:jest": "tsc --noEmit && jest",
-    "test:unit": "jest unit"
+    "test:unit": "jest unit",
+    "all": "npm run build && npm run format && npm run lint && npm run pack && npm test",
+    "build:pack": "npm run build && npm run packsrc"
   },
   "snyk": true,
   "version": "0.0.0"

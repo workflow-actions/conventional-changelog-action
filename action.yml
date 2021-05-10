@@ -13,7 +13,7 @@ branding:
 inputs:
   name:
     description: 'input description here'
-    default: 'hello typescript'
+    default: 'does not yet work'
     required: true
 
 outputs:
