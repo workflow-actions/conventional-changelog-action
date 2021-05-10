@@ -32,6 +32,7 @@ repos:
     description: Forces to replace line ending by the UNIX 'lf' character.
     # files: ^tests/
   - id: no-commit-to-branch
+    args: [--branch, main, --branch, master]
   # - id: pretty-format-json
   #   args: ['--autofix', '--indent=2']
   #   exclude: ^tsconfig.json
