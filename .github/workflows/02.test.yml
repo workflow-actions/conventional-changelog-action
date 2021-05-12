@@ -21,7 +21,7 @@ jobs:
         uses: ./
         id: run_action
         with:
-          name: world
+          name: run-action
 
       - name: log-action-output
         run: echo ${{steps.run_action.outputs.changelog}}

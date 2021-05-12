@@ -19,6 +19,7 @@
 ## ⭐ Features
 
 - [X] Write source in TypeScript
+- [ ] Move to yarn
 - [ ] Generate conventional Changelog
 - [ ] Add link with diff to changelog
 - [ ] Get a recommended version bump based on conventional commits

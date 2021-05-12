@@ -1,16 +1,15 @@
-import {debug, setFailed, setOutput, info, error} from '@actions/core'
+import {setFailed, setOutput, info, debug, error} from '@actions/core'
 import _ from 'lodash'
 
 const resolve = require('path').resolve
 import {inspect} from 'util'
 // import {error} from '@actions/core'
 import Input from './input'
-import {generateChangelog} from './model/changelog'
+// import {generateChangelog} from './model/changelog'
 
 export const run = async () => {
   const inputs = new Input().inputs
   info(`Inputs: ${inspect(inputs)}`)
-  debug('')
 
   let options = _.omitBy({
     preset: '',
@@ -26,10 +25,10 @@ export const run = async () => {
   options.config = config
   // if *.json
   options = _.merge(options, config.options)
-  // debug(`changelog options: ${inspect(options)}`)
+  debug(`changelog options: ${inspect(options)}`)
   try {
-    const changelog = await generateChangelog(options)
-    setOutput('changelog', changelog)
+    // const changelog = await generateChangelog(options)
+    setOutput('changelog', Date.now())
   } catch (err) {
     error(err)
   }
