@@ -23,14 +23,14 @@ open: ## Open repository
 	@open $(shell git config --get remote.origin.url)
 
 install: ## Install module dependencies
-	@npm install
+	@yarn
 
 build: ## Run build
-	@npm run pack
+	@yarn build:parcel
 
 run-dist: build
 run-dist: ## Run action locally
-	@npm run exec
+	@yarn run exec
 
 run: ## Run action from typescript
 	@npm run local
