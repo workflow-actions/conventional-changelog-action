@@ -29,6 +29,7 @@
     "jest-circus": "26.6.3",
     "mocha-param": "2.0.1",
     "nock": "13.0.11",
+    "parcel": "2.0.0-beta.2",
     "prettier": "^2.2.1",
     "sinon": "10.0.0",
     "snyk": "1.587.0",
@@ -50,12 +51,12 @@
   "license": "ISC",
   "main": "lib/index.js",
   "name": "blueprint-github-action-typescript",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/workflow-actions/first-action.git"
-  },
+  "repository": "git+https://github.com/workflow-actions/first-action.git",
   "scripts": {
     "build": "tsc",
+    "build:pack": "npm run build && npm run packsrc",
+    "build:parcel": "parcel build ./src/index.ts",
+    "build:ncc": "ncc build --license license -m",
     "exec": "node dist/index.js",
     "format": "prettier --write **/*.ts",
     "format-check": "prettier --check '**/*.ts'",
@@ -63,13 +64,17 @@
     "lint": "eslint src/**/*.ts",
     "local": "ts-node src/index.ts",
     "packsrc": "tsc --noEmit && ncc build --license license --source-map -m",
-    "pack": "ncc build --license license -m",
     "test": "npm run test:unit",
     "test:coverage": "tsc --noEmit && jest --coverage",
     "test:jest": "tsc --noEmit && jest",
     "test:unit": "jest unit",
     "all": "npm run build && npm run format && npm run lint && npm run pack && npm test",
-    "build:pack": "npm run build && npm run packsrc"
+    "test:watch": "yarn test --watch"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn build && git add dist/index.js"
+    }
   },
   "snyk": true,
   "version": "0.0.0"
