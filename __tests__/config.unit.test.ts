@@ -1,14 +1,14 @@
 // @ts-ignore
-import * as fixtures from './fixtures/init.test';
+import * as fixtures from './fixtures/init.test'
 import {Config} from '../src/config'
 
 describe('config: test suite', () => {
   beforeAll(() => {
-    fixtures.initTestEnv();
-  });
+    fixtures.initTestEnv()
+  })
   afterAll(() => {
-    fixtures.cleanTestEnv();
-  });
+    fixtures.cleanTestEnv()
+  })
 
   test('should validate config values', () => {
     const cfg = new Config()
@@ -21,5 +21,5 @@ describe('config: test suite', () => {
     expect(cfg.sha).toEqual('6a3f7b3a12384')
     expect(cfg.event).toEqual('workflow_dispatch')
     expect(cfg.token).toEqual('super-secret-github-token')
-  });
+  })
 })

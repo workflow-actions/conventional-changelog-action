@@ -1,13 +1,12 @@
 import * as core from '@actions/core'
-import { run } from '../src'
+import {run} from '../src'
 
 test('paradox', () => expect(1).toBe(1))
 
 describe('index: action debug messages', () => {
-
   beforeEach(() => {
-    jest.resetModules();
-  });
+    jest.resetModules()
+  })
 
   it('should output a debug message', async () => {
     const debugMock = jest.spyOn(core, 'debug')
