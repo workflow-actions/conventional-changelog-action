@@ -79,12 +79,12 @@ repos:
   - id: commitlint
     stages: [commit-msg]
     additional_dependencies: ["@commitlint/config-conventional"]
-# local
-# - repo: local
-#   hooks:
-#   - id: husky-run-pre-commit
-#     name: husky
-#     language: system
-#     entry: .husky/pre-commit
-#     pass_filenames: false
-#     always_run: true
+# local hooks
+- repo: local
+  hooks:
+  - id: husky-run-pre-commit
+    name: husky
+    language: system
+    entry: .husky/pre-commit
+    pass_filenames: false
+    always_run: true
