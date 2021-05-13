@@ -3,6 +3,7 @@
   "bugs": {
     "url": "https://github.com/workflow-actions/conventional-changelog-action/issues"
   },
+  "default": "dist/index.js",
   "dependencies": {
     "@actions/core": "^1.2.7",
     "@actions/github": "^4.0.0",
@@ -12,6 +13,7 @@
   },
   "description": "TypeScript template/accelerator action",
   "devDependencies": {
+    "@parcel/transformer-typescript-tsc": "2.0.0-alpha.3",
     "@types/jest": "26.0.23",
     "@types/lodash": "4.14.168",
     "@types/node": "15.0.1",
@@ -37,10 +39,12 @@
     "ts-node": "9.1.1",
     "typescript": "^4.2.4"
   },
-  "engines": {
-    "node": ">=12"
-  },
   "homepage": "https://github.com/workflow-actions/conventional-changelog-action#readme",
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn build:parcel"
+    }
+  },
   "keywords": [
     "github",
     "action",
@@ -51,31 +55,43 @@
   "license": "ISC",
   "main": "lib/index.js",
   "name": "blueprint-github-action-typescript",
+  "private": false,
   "repository": "git+https://github.com/workflow-actions/first-action.git",
   "scripts": {
+    "all": "npm run build && npm run format && npm run lint && npm run pack && npm test",
     "build": "tsc",
-    "build:pack": "npm run build && npm run packsrc",
-    "build:parcel": "parcel build ./src/index.ts",
     "build:ncc": "ncc build --license license -m",
+    "build:pack": "npm run build && npm run packsrc",
+    "build:parcel": "parcel build ./src/index.ts --no-scope-hoist",
+    "dev": "parcel watch \"src/index.ts\"",
     "exec": "node dist/index.js",
     "format": "prettier --write **/*.ts",
     "format-check": "prettier --check '**/*.ts'",
     "help": "tsc --help; ncc --help",
     "lint": "eslint src/**/*.ts",
     "local": "ts-node src/index.ts",
-    "packsrc": "tsc --noEmit && ncc build --license license --source-map -m",
+    "packsrc": "tsc && ncc build --license license --source-map -m",
+    "prebuild": "tslint -c tslint.json -p tsconfig.json --fix",
+    "prepare": "husky install",
     "test": "npm run test:unit",
     "test:coverage": "tsc --noEmit && jest --coverage",
     "test:jest": "tsc --noEmit && jest",
     "test:unit": "jest unit",
-    "all": "npm run build && npm run format && npm run lint && npm run pack && npm test",
-    "test:watch": "yarn test --watch"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "yarn build && git add dist/index.js"
-    }
+    "test:watch": "yarn test --watch",
+    "type-check": "tsc --noEmit",
+    "type-check:watch": "tsc --noEmit --watch"
   },
   "snyk": true,
+  "targets": {
+    "default": {
+      "context": "node",
+      "distDir": "./dist",
+      "engines": {
+        "node": "12"
+      },
+      "includeNodeModules": true,
+      "outputFormat": "commonjs"
+    }
+  },
   "version": "0.0.0"
 }

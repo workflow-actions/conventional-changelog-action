@@ -33,9 +33,9 @@ repos:
     # files: ^tests/
   - id: no-commit-to-branch
     args: [--branch, main, --branch, master]
-  # - id: pretty-format-json
-  #   args: ['--autofix', '--indent=2']
-  #   exclude: ^tsconfig.json
+  - id: pretty-format-json
+    args: ['--autofix', '--indent=2']
+    files: ^package.json
   - id: requirements-txt-fixer
   - id: sort-simple-yaml
   - id: trailing-whitespace
@@ -51,6 +51,7 @@ repos:
   rev: v0.1.12 # Get the latest from: https://github.com/gruntwork-io/pre-commit/releases
   hooks:
   - id: shellcheck
+    exclude: ^.husky
 - repo: https://github.com/ambv/black
   rev: 21.4b2
   hooks:
@@ -87,3 +88,12 @@ repos:
   - id: commitlint
     stages: [commit-msg]
     additional_dependencies: ["@commitlint/config-conventional"]
+# local
+# - repo: local
+#   hooks:
+#   - id: husky-run-pre-commit
+#     name: husky
+#     language: system
+#     entry: .husky/pre-commit
+#     pass_filenames: false
+#     always_run: true
