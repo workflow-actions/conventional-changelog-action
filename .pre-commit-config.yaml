@@ -88,3 +88,4 @@ repos:
     entry: .husky/pre-commit
     pass_filenames: false
     always_run: true
+    files: ^src/*
