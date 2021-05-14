@@ -31,10 +31,8 @@ export const run = async () => {
     // if *.json
     options = _.merge(options, config.options)
     debug(`changelog options: ${inspect(options)}`)
-
     // const changelog = await generateChangelog(options)
     setOutput('changelog', Date.now())
-    console.log('test')
   } catch (err) {
     console.error(err)
     error(err)

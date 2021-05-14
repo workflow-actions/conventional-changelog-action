@@ -1,4 +1,10 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-npm test
+set -e
+
+yarn format
+yarn test:jest
+yarn build:parcel
+
+git add dist/*
