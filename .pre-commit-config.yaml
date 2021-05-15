@@ -88,4 +88,7 @@ repos:
     entry: .husky/pre-commit
     pass_filenames: false
     always_run: false
-    files: (?x)^(src/*|__tests__/*)$
+    files: |
+      (?x)(
+          ^src/
+      )

@@ -30,6 +30,7 @@ export const run = async () => {
     // const config = require(resolve(process.cwd(), './config/config.json'))
     // console.log(a)
     // @ts-ignore
+
     options.config = staticConfig
     // if *.json
     options = _.merge(options, staticConfig.options)
