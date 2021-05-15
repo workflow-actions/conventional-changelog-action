@@ -2,7 +2,6 @@ import {setFailed, setOutput, info, debug, error} from '@actions/core'
 import _ from 'lodash'
 import {inspect} from 'util'
 
-
 // const resolve = require('path').resolve
 import Input from './input'
 import {generateChangelog} from './model/changelog'
@@ -45,8 +44,7 @@ export const run = async () => {
 }
 
 run()
-  .then(() => {
-  })
-  .catch((error) => {
+  .then(() => {})
+  .catch(error => {
     setFailed(error.message)
   })
