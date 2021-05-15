@@ -19,3 +19,5 @@ inputs:
 outputs:
   changelog:
     description: 'Generated changelog'
+  config:
+    description: 'Configuration options e.g., for debugging and post processing'

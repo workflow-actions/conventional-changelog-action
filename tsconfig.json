@@ -6,11 +6,9 @@
       "es2019",
       "dom"
     ],
-    "baseUrl": "./",
+    "baseUrl": ".",
     "paths": {
-      "~*": [
-        "src/*"
-      ]
+      "~/*": [ "./*" ]
     },
     "moduleResolution": "node",
     "outDir": "./lib", /* Redirect output structure to the directory. */
@@ -24,7 +22,9 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "sourceMap": true,
-    "forceConsistentCasingInFileNames": true
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "allowJs": true
   },
   "include": [
     "src/**/*"

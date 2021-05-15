@@ -2,7 +2,7 @@
 _extends: .github
 
 repository:
-  description: "◀️  This action will generate a un-opinionated changelog from conventional commits and suggest next tag version."
+  description: "↘️  This action will generate a un-opinionated changelog from conventional commits and suggest next tag version."
   topics: ivank, github-actions, typescript, conventional-commits, changelog, workflow
   homepage: https://github.com/workflow-actions/conventional-changelog-action.git
   private: false

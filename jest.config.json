@@ -20,9 +20,10 @@
   },
   "moduleFileExtensions": [
     "js",
-    "ts"
+    "ts",
+    "json"
   ],
-  "testEnvironment": "node",
+  "testEnvironment": "jsdom",
   "testMatch": [
     "**/*.test.ts"
   ],
