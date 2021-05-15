@@ -1,6 +1,6 @@
 // @ts-ignore
 import * as fixtures from './fixtures/init.test'
-import {Config} from '../src/config'
+import {Config} from '../src/config/config'
 
 describe('config: test suite', () => {
   beforeAll(() => {

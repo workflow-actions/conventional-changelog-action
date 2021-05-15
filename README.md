@@ -19,10 +19,10 @@
 ## ⭐ Features
 
 - [X] Write source in TypeScript
-- [ ] Move to yarn
+- [X] Move to yarn
 - [ ] Generate conventional Changelog
 - [ ] Add link with diff to changelog
-- [ ] Get a recommended version bump based on conventional commits
+- [ ] Get a recommended version bump based  on conventional commits
 - [ ] Auto-publish compiled code to `dist/`
 - [ ] Add to code coverage
 - [ ] Add emojies support

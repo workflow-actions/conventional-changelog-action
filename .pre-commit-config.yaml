@@ -1,6 +1,6 @@
 repos:
 - repo: https://github.com/pre-commit/pre-commit-hooks
-  rev: v3.4.0
+  rev: v4.0.0
   hooks:
   - id: check-added-large-files
     args: ['--maxkb=500']
@@ -87,5 +87,8 @@ repos:
     language: system
     entry: .husky/pre-commit
     pass_filenames: false
-    always_run: true
-    files: ^src/*
+    always_run: false
+    files: |
+      (?x)(
+          ^src/
+      )
