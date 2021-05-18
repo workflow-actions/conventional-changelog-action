@@ -1,11 +1,12 @@
 const conventionalChangelog = require('conventional-changelog')
 
+
 // TODO:
 // - add header
 // - test
 export const generateChangelog = (config) => {
   return new Promise((resolve, reject) => {
-    const stream = conventionalChangelog(config)
+    const stream = conventionalChangelog({ config })
     let changelog = ''
 
     stream
