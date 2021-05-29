@@ -7,14 +7,14 @@
   "dependencies": {
     "@actions/core": "^1.2.7",
     "@actions/github": "^4.0.0",
-    "conventional-changelog": "3.1.24",
-    "conventional-recommended-bump": "6.1.0",
+    "conventional-changelog": "^3.1.24",
     "env-var": "7.0.0"
   },
-  "description": "TypeScript template/accelerator action",
+  "description": "Generate a changelog from git metadata",
   "devDependencies": {
     "@parcel/transformer-typescript-tsc": "2.0.0-beta.1",
     "@parcel/validator-typescript": "2.0.0-nightly.112",
+    "@types/fs-extra": "^9.0.11",
     "@types/jest": "26.0.23",
     "@types/lodash": "4.14.168",
     "@types/node": "15.0.1",
@@ -37,7 +37,7 @@
     "sinon": "10.0.0",
     "snyk": "1.587.0",
     "ts-jest": "26.5.5",
-    "ts-node": "9.1.1",
+    "ts-node": "^9.1.1",
     "typescript": "^4.2.4"
   },
   "homepage": "https://github.com/workflow-actions/conventional-changelog-action#readme",
@@ -60,19 +60,21 @@
   "repository": "git+https://github.com/workflow-actions/first-action.git",
   "scripts": {
     "all": "npm run build && npm run format && npm run lint && npm run pack && npm test",
-    "build": "tsc",
-    "build:ncc": "ncc build --license license -m",
-    "build:pack": "npm run build && npm run packsrc",
-    "build:parcel": "parcel build ./src/index.ts --no-scope-hoist",
+    "build": "npm run clean && npm run build:pack",
+    "build1": "yarn build:clean && yarn build:compile",
+    "build:compile": "ncc build src/index.ts -o dist -m --license licenses.txt",
+    "build:copy-config": "cp src/defaultConfig.json dist/defaultConfig.json",
+    "build:pack": "rm -rf lib/* && npm run packsrc",
+    "build:parcel": "rm -rf dist/* && rm -rf lib/* && parcel build ./src/index.ts",
+    "clean": "rm -rf dist/* && rm -rf lib/*",
     "dev": "parcel watch \"src/index.ts\"",
     "exec": "node dist/index.js",
     "format": "prettier --write **/*.ts",
     "format-check": "prettier --check '**/*.ts'",
-    "help": "tsc --help; ncc --help",
+    "help": "tsc --help; ncc --help; parcel build --help",
     "lint": "eslint src/**/*.ts",
     "local": "ts-node src/index.ts",
-    "packsrc": "tsc && ncc build --license license --source-map -m",
-    "prebuild": "tslint -c tslint.json -p tsconfig.json --fix",
+    "packsrc": "ncc build src/index.ts -m",
     "prepare": "husky install",
     "test": "npm run test:unit",
     "test:coverage": "tsc --noEmit && jest --coverage",
@@ -90,7 +92,7 @@
       "engines": {
         "node": "12"
       },
-      "includeNodeModules": true,
+      "includeNodeModules": false,
       "outputFormat": "commonjs"
     }
   },

@@ -1,51 +1,36 @@
-import {setFailed, setOutput, info, debug, error} from '@actions/core'
-import _ from 'lodash'
-import {inspect} from 'util'
+import * as _ from 'lodash'
+import {setOutput, setFailed, debug} from '@actions/core'
 
 // const resolve = require('path').resolve
-import Input from './input'
-import {generateChangelog} from './model/changelog'
-import staticConfig from './config/config.json'
+import {generateChangelog} from './changelog'
+import {Config} from './config/config'
 
 export const run = async () => {
-  const inputs = new Input().inputs
-  info(`Inputs: ${inspect(inputs)}`)
+  const cfg = new Config()
 
-  let options = _.omitBy(
+  const options = _.omitBy(
     {
-      preset: '',
-      append: true,
+      preset: cfg.config.options.preset,
+      append: false,
       releaseCount: 0,
       skipUnstable: false,
-      outputUnreleased: true
+      outputUnreleased: true,
+      config: cfg.config
     },
     _.isUndefined
   )
 
-  // if config!!!
-  // if *.js
-
   try {
     // todo: add support for external config files
-    // const config = require(resolve(process.cwd(), './config/config.json'))
-    // console.log(a)
-    // @ts-ignore
-
-    options.config = staticConfig
-    // if *.json
-    options = _.merge(options, staticConfig.options)
-    debug(`changelog options: ${inspect(options)}`)
+    // const config = require(resolve(process.cwd(), './preset.json'))
+    debug(`changelog options: ${JSON.stringify(options)}`)
     const changelog = await generateChangelog(options)
-
-    setOutput('config', staticConfig)
+    console.log(changelog)
+    setOutput('config', cfg.config)
     setOutput('changelog', changelog)
-  } catch (err) {
-    error(err)
+  } catch (error) {
+    setFailed(error)
   }
 }
 
-run()
-  .then(() => {})
-  .catch(error => {
-    setFailed(error.message)
-  })
+run().then(() => {})
