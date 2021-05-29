@@ -1,4 +1,4 @@
-name: "Auto-generate CHANGELOG"
+name: "conventional commits changelog"
 description: "Generate CHANGELOG according to conventional commits automatically"
 author: ivankatliarchuk <https://github.com/ivankatliarchuk>
 
