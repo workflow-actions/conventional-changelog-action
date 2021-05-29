@@ -19,6 +19,7 @@ conventional-changelog -n config.js -r 0
 conventional-changelog -p angular -i CHANGELOG.md -s -r 0
 conventional-changelog -i CHANGELOG.md -u -r 0 -n <config>
 conventional-changelog -p conventionalcommits -n ./config1.json -c ./context.json -r 0
+conventional-changelog -r 0 -n preset.json
 ```
 
 ## Presets

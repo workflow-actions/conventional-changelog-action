@@ -61,8 +61,12 @@
   "scripts": {
     "all": "npm run build && npm run format && npm run lint && npm run pack && npm test",
     "build": "npm run clean && npm run build:pack",
+    "build1": "yarn build:clean && yarn build:compile",
+    "build:compile": "ncc build src/index.ts -o dist -m --license licenses.txt",
+    "build:copy-config": "cp src/defaultConfig.json dist/defaultConfig.json",
     "build:pack": "rm -rf lib/* && npm run packsrc",
     "build:parcel": "rm -rf dist/* && rm -rf lib/* && parcel build ./src/index.ts",
+    "clean": "rm -rf dist/* && rm -rf lib/*",
     "dev": "parcel watch \"src/index.ts\"",
     "exec": "node dist/index.js",
     "format": "prettier --write **/*.ts",
@@ -78,11 +82,7 @@
     "test:unit": "jest unit",
     "test:watch": "yarn test --watch",
     "type-check": "tsc --noEmit",
-    "type-check:watch": "tsc --noEmit --watch",
-    "build1": "yarn build:clean && yarn build:compile",
-    "clean": "rm -rf dist/* && rm -rf lib/*",
-    "build:compile": "ncc build src/index.ts -o dist -m --license licenses.txt",
-    "build:copy-config": "cp src/defaultConfig.json dist/defaultConfig.json"
+    "type-check:watch": "tsc --noEmit --watch"
   },
   "snyk": true,
   "targets": {

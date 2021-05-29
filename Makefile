@@ -26,11 +26,11 @@ install: ## Install module dependencies
 	@yarn
 
 build: ## Run build
-	@yarn build:parcel
+	@npm run build:parcel
 
 run-dist: build
 run-dist: ## Run action locally
-	@yarn run exec
+	@npm run exec
 
 run: ## Run action from typescript
 	@npm run local
